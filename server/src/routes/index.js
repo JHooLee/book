@@ -44,14 +44,14 @@ BookRouter.route('/').post((req, res) => {
 BookRouter.route('/:id').put((req, res) => {
     Book.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, book) => {
         if(err) throw err;
-        res.json({status: 204, msg: `book ${req.params.id} updated in db !`, book})
+        res.json({status: 204, msg: `book ${req.params.title} updated in db !`, book})
     })
 })
 //삭제(id로)
 BookRouter.route('/:id').delete((req, res) => {
     Book.findByIdAndRemove(req.params.id, (err, book) => {
         if(err) throw err;
-        res.json({status: 204, msg: `book ${req.params.id} removed in db !`})
+        res.json({status: 204, msg: `book ${req.params.title} removed in db !`})
     })
 })
 
